@@ -7,30 +7,71 @@
     <title>Krishna Tailor Khao Lak</title>
 </head>
 <body>
-    <div id="top" >
-        <!-- background should be image that zooms on hover or focus -->
-        <!-- replace h1 with logo -->
+    <nav>
+        <a href="#top">Home</a>
+        <a href="#bio">About</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div id="top">
         <h1>Krishna Tailor Khao Lak</h1>
-        <!-- fade into content -->
     </div>
-    <div id="bio" >
-        <h2>Krishna Tailor kaho lak</h2>
-        <p>bio about krishna tailor</p>
-    </div>
-    <div id="services" >
+
+    <section id="bio">
+        <h2>Krishna Tailor Khao Lak</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae est dapibus, euismod nunc a, dictum justo. Vivamus lacinia, felis id bibendum aliquet, urna est interdum orci, vel vehicula libero nisl sit amet ante.</p>
+    </section>
+
+    <section id="services">
         <h2>Services Offered</h2>
-        <p>services listed</p>
-    </div>
-    <div id="gallery" >
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae est dapibus, euismod nunc a, dictum justo. Vivamus lacinia, felis id bibendum aliquet, urna est interdum orci, vel vehicula libero nisl sit amet ante.</p>
+    </section>
+
+    <section id="gallery">
         <h2>Image Gallery</h2>
-        <!-- replace <p> with image gallery -->
-        <p>highlight image gallery</p>
-        <p>click here to see more</p>
-    </div>
-    <footer id="contact" >
-        <h2>contact</h2>
-        <p>contact methods [all as links]</p>
-    </footwe>
-    
+        <div class="carousel">
+            <img src="lightgreybox.png" alt="Image 1">
+            <img src="lightgreybox.png" alt="Image 2">
+            <img src="lightgreybox.png" alt="Image 3">
+            <img src="lightgreybox.png" alt="Image 4">
+            <img src="lightgreybox.png" alt="Image 5">
+            <img src="lightgreybox.png" alt="Image 6">
+            <img src="lightgreybox.png" alt="Image 7">
+            <img src="lightgreybox.png" alt="Image 8">
+            <img src="lightgreybox.png" alt="Image 9">
+            <img src="lightgreybox.png" alt="Image 10">
+        </div>
+        <div class="carousel-nav">
+            <button id="prev">&#10094;</button>
+            <button id="next">&#10095;</button>
+        </div>
+        <p>Click here to see more</p>
+    </section>
+
+    <footer id="contact">
+        <h2>Contact</h2>
+        <a href="mailto:email@example.com"><img src="lightgreybox.png" alt="Email Icon"> Email</a>
+        <a href="https://maps.google.com" target="_blank"><img src="lightgreybox.png" alt="Maps Icon"> Google Maps</a>
+        <a href="https://wa.me/1234567890" target="_blank"><img src="lightgreybox.png" alt="WhatsApp Icon"> WhatsApp</a>
+    </footer>
+
+    <script>
+        const carousel = document.querySelector('.carousel');
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+        let offset = 0;
+
+        nextButton.addEventListener('click', () => {
+            offset = (offset - 100) % (100 * 3);
+            carousel.style.transform = `translateX(${offset}%)`;
+        });
+
+        prevButton.addEventListener('click', () => {
+            offset = (offset + 100) % (100 * 3);
+            carousel.style.transform = `translateX(${offset}%)`;
+        });
+    </script>
 </body>
 </html>
