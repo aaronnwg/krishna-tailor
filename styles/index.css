@@ -1,7 +1,8 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    color: #333;
+    color: #f0f0f0;
+    background-color: #121212;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,38 +10,47 @@ body {
 
 nav {
     width: 100%;
-    background-color: #f8f9fa;
+    background: linear-gradient(145deg, #1e1e1e, #2c2c2c); /* Dark gradient for nav */
     display: flex;
     justify-content: space-around;
     padding: 1em 0;
     position: fixed;
     top: 0;
     z-index: 1000;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); /* Add shadow for a floating look */
 }
 
 nav a {
-    color: #333;
+    color: #ffffff; /* Lighter color for nav links */
     text-decoration: none;
     font-weight: bold;
     padding: 0.5em;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav a:hover {
+    color: #ff9800; /* Highlight color for hover effect */
+    text-shadow: 0px 0px 8px #ff9800; /* Glossy glow effect on hover */
 }
 
 #top {
     width: 100%;
     height: 100vh;
-    background-image: url('../images/325459592_554516993368490_6342167407779031405_n.jpg'); 
+    background-image: url('../images/325459592_554516993368490_6342167407779031405_n.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: #ffffff;
     text-shadow: 2px 2px 5px #000;
+    background-blend-mode: overlay;
 }
 
 #top h1 {
     font-size: 3em;
     margin: 0;
+    text-shadow: 2px 2px 12px rgba(255, 152, 0, 0.8); /* Glossy text effect */
 }
 
 section {
@@ -48,9 +58,9 @@ section {
     max-width: 800px;
     margin: 2em auto;
     padding: 2em;
-    background-color: #f8f9fa;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-radius: 8px;
+    background: linear-gradient(145deg, #222, #333); /* Glossy dark gradient */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Softer shadow for floating effect */
+    border-radius: 12px;
     text-align: center;
 }
 
@@ -72,15 +82,20 @@ section {
 }
 
 .carousel img {
-    height: 350px; /* Set a fixed height for the images */
+    height: 350px;
     object-fit: cover;
     object-position: top;
-    flex-shrink: 0; /* Ensure the images don't shrink */
+    flex-shrink: 0;
     cursor: pointer;
+    border: 2px solid #333;
+    border-radius: 10px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .carousel img:hover {
     transform: scale(1.05);
+    border-color: #ff9800;
+    box-shadow: 0px 0px 15px rgba(255, 152, 0, 0.7); /* Glossy shadow on hover */
 }
 
 .carousel-nav {
@@ -93,24 +108,38 @@ section {
 }
 
 .carousel-nav button {
-    background-color: rgba(255,255,255,0.7);
+    background-color: rgba(255, 255, 255, 0.15);
     border: none;
     padding: 1em;
+    color: #ffffff;
     cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carousel-nav button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 0px 10px rgba(255, 152, 0, 0.7); /* Add glossy glow on hover */
 }
 
 footer {
-    background-color: #333;
-    color: white;
+    background-color: #222;
+    color: #f0f0f0;
     padding: 2em 0;
     width: 100%;
     text-align: center;
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.5); /* Footer shadow for a floating look */
 }
 
 footer a {
-    color: #f8f9fa;
+    color: #ff9800; /* Footer links in highlight color */
     text-decoration: none;
     margin: 0 0.5em;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+footer a:hover {
+    color: #ffffff; /* Hover effect for footer links */
+    text-shadow: 0px 0px 8px #ff9800; /* Glossy glow effect */
 }
 
 @media (max-width: 768px) {
@@ -139,26 +168,20 @@ footer a {
 
 .image-grid img {
     width: 100%;
-    height: 350px; /* Maximum height to ensure uniformity */
-    object-fit: cover; /* Crop the image to fit within the grid */
-    object-position: top; /* Ensure the top of the image is visible */
+    height: 350px;
+    object-fit: cover;
+    object-position: top;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 2px solid #333;
+    border-radius: 10px;
 }
 
 .image-grid img:hover {
     transform: scale(1.05);
+    border-color: #ff9800;
+    box-shadow: 0px 0px 15px rgba(255, 152, 0, 0.7); /* Glossy shadow on hover */
 }
-
-/* Mobile Styles */
-@media (max-width: 768px) {
-    .image-grid img {
-        height: auto; /* No cropping on mobile */
-        object-fit: contain; /* Show the full image */
-    }
-}
-
-
 
 /* Modal Styles */
 .modal {
@@ -178,6 +201,7 @@ footer a {
     display: block;
     max-width: 90%;
     max-height: 80%;
+    border-radius: 12px;
 }
 
 .close {
@@ -192,7 +216,6 @@ footer a {
 
 .close:hover,
 .close:focus {
-    color: #999;
-    text-decoration: none;
-    cursor: pointer;
+    color: #ff9800; /* Close button hover effect */
+    text-shadow: 0px 0px 8px #ff9800; /* Glossy glow on hover */
 }
