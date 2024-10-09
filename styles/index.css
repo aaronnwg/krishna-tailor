@@ -1,38 +1,110 @@
-body {
+/* Reset and base styles */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: Arial, sans-serif;
     color: #f0f0f0;
     background-color: #121212;
     display: flex;
     flex-direction: column;
     align-items: center;
+    line-height: 1.6;
+    overflow-x: hidden;
+    width: 100%;
 }
 
+/* Navigation */
+/* Navigation */
 nav {
     width: 100%;
-    background: linear-gradient(145deg, #1e1e1e, #2c2c2c); /* Dark gradient for nav */
-    display: flex;
-    justify-content: space-around;
-    padding: 1em 0;
+    background: linear-gradient(145deg, #1e1e1e, #2c2c2c);
     position: fixed;
     top: 0;
     z-index: 1000;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); /* Add shadow for a floating look */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-nav a {
-    color: #ffffff; /* Lighter color for nav links */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    color: #ffffff;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.nav-menu {
+    display: flex;
+    list-style-type: none;
+}
+
+.nav-menu li {
+    margin-left: 1em;
+}
+
+.nav-menu a {
+    color: #ffffff;
     text-decoration: none;
     font-weight: bold;
     padding: 0.5em;
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-nav a:hover {
-    color: #ff9800; /* Highlight color for hover effect */
-    text-shadow: 0px 0px 8px #ff9800; /* Glossy glow effect on hover */
+.nav-menu a:hover {
+    color: #ff9800;
+    text-shadow: 0px 0px 8px #ff9800;
 }
 
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(145deg, #1e1e1e, #2c2c2c);
+        padding: 1em;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu li {
+        margin: 0.5em 0;
+    }
+}
+
+/* Top section */
 #top {
     width: 100%;
     height: 100vh;
@@ -50,61 +122,95 @@ nav a:hover {
 #top h1 {
     font-size: 3em;
     margin: 0;
-    text-shadow: 2px 2px 12px rgba(255, 152, 0, 0.8); /* Glossy text effect */
+    text-shadow: 2px 2px 12px rgba(255, 152, 0, 0.8);
+    text-align: center;
+    padding: 0 1rem;
+}
+
+/* Main content */
+main {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 section {
-    width: 90%;
-    max-width: 800px;
-    margin: 2em auto;
-    padding: 2em;
-    background: linear-gradient(145deg, #222, #333); /* Glossy dark gradient */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Softer shadow for floating effect */
-    border-radius: 12px;
+    margin: 2em 0;
     text-align: center;
 }
 
+h2 {
+    color: #ff9800;
+    margin-bottom: 1em;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+/* Horizontal line */
+hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, #ff9800, #ffffff);
+    margin: 2em auto;
+    width: 80%;
+}
+
+/* Links */
+a {
+    color: #ff9800;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ffc107;
+}
+
+/* Carousel */
 #gallery {
-    padding: 2em 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 2em auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
     overflow: hidden;
-    position: relative;
+}
+
+.carousel-container {
+    width: 100%;
+    max-width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
 }
 
 .carousel {
     display: flex;
-    gap: 20px; /* Gap between images */
     transition: transform 0.5s ease;
-    overflow: hidden; /* Hide the overflow to create the sliding effect */
+    gap: 20px;
 }
 
 .carousel img {
+    flex: 0 0 calc(33.333% - 20px);
+    max-width: calc(33.333% - 20px);
     height: 350px;
     object-fit: cover;
     object-position: top;
-    flex-shrink: 0;
     cursor: pointer;
-    border: 2px solid #333;
-    border-radius: 10px;
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .carousel img:hover {
     transform: scale(1.05);
-    border-color: #ff9800;
-    box-shadow: 0px 0px 15px rgba(255, 152, 0, 0.7); /* Glossy shadow on hover */
 }
 
 .carousel-nav {
-    position: absolute;
-    top: 50%;
-    width: 100%;
     display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
+    justify-content: center;
+    margin-top: 1em;
 }
 
 .carousel-nav button {
@@ -114,73 +220,49 @@ section {
     color: #ffffff;
     cursor: pointer;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 1em;
 }
 
 .carousel-nav button:hover {
     background-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0px 0px 10px rgba(255, 152, 0, 0.7); /* Add glossy glow on hover */
+    box-shadow: 0px 0px 10px rgba(255, 152, 0, 0.7);
 }
 
+/* Footer */
 footer {
     background-color: #222;
     color: #f0f0f0;
     padding: 2em 0;
     width: 100%;
     text-align: center;
-    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.5); /* Footer shadow for a floating look */
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.5);
 }
 
-footer a {
-    color: #ff9800; /* Footer links in highlight color */
+#contact_links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 1em;
+}
+
+#contact_links a {
+    color: #f0f0f0;
     text-decoration: none;
-    margin: 0 0.5em;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
 }
 
-footer a:hover {
-    color: #ffffff; /* Hover effect for footer links */
-    text-shadow: 0px 0px 8px #ff9800; /* Glossy glow effect */
+#contact_links a:hover {
+    transform: scale(1.1);
 }
 
-@media (max-width: 768px) {
-    #top h1 {
-        font-size: 2.5em;
-    }
-    
-    nav {
-        flex-direction: column;
-    }
-    
-    section {
-        width: 95%;
-        margin: 1em auto;
-        padding: 1em;
-    }
-}
-
-/* Image Grid */
-.image-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 10px;
-    margin: 20px 0;
-}
-
-.image-grid img {
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-    object-position: top;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    border: 2px solid #333;
-    border-radius: 10px;
-}
-
-.image-grid img:hover {
-    transform: scale(1.05);
-    border-color: #ff9800;
-    box-shadow: 0px 0px 15px rgba(255, 152, 0, 0.7); /* Glossy shadow on hover */
+#contact_links img {
+    max-height: 40px;
+    width: auto;
+    margin-bottom: 0.5em;
 }
 
 /* Modal Styles */
@@ -216,6 +298,84 @@ footer a:hover {
 
 .close:hover,
 .close:focus {
-    color: #ff9800; /* Close button hover effect */
-    text-shadow: 0px 0px 8px #ff9800; /* Glossy glow on hover */
+    color: #ff9800;
+    text-shadow: 0px 0px 8px #ff9800;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+    main {
+        padding: 0 2rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .carousel img {
+        flex: 0 0 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #top h1 {
+        font-size: 2.5em;
+    }
+
+    .carousel img {
+        flex: 0 0 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 576px) {
+    #top h1 {
+        font-size: 2em;
+    }
+
+    .carousel img {
+        flex: 0 0 calc(100% - 20px);
+        max-width: calc(100% - 20px);
+    }
+
+    #contact_links {
+        flex-direction: column;
+    }
+
+    .modal-content {
+        max-width: 95%;
+    }
+
+    .close {
+        top: 20px;
+        right: 20px;
+    }
+}
+
+/* Image Grid */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.image-grid img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    object-position: top;
+    cursor: pointer;
+    border: none; /* No borders */
+    border-radius: 0; /* No rounded corners */
+    box-shadow: none; /* No shadow */
+    transition: transform 0.3s ease;
+}
+
+.image-grid img:hover {
+    transform: scale(1.05); /* Simple hover effect */
 }

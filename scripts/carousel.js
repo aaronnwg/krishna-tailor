@@ -1,35 +1,42 @@
 document.addEventListener('DOMContentLoaded', function () {
-// Select necessary elements
-const carousel = document.querySelector('.carousel');
-const images = document.querySelectorAll('.carousel img');
-const prevButton = document.getElementById('prev');
-const nextButton = document.getElementById('next');
+    const carousel = document.querySelector('.carousel');
+    const prevButton = document.getElementById('prev');
+    const nextButton = document.getElementById('next');
+    const images = Array.from(document.querySelectorAll('.carousel img'));
+    
+    let currentIndex = 0;
+    let imagesPerView = getImagesPerView();
 
-// Calculate the total width of one image, including the gap
-const imageWidth = images[0].clientWidth + 20; // Add the gap between images
-let currentIndex = 0;
-
-// Function to move the carousel by one image
-function moveCarousel(index) {
-    const visibleWidth = carousel.clientWidth;
-    const maxIndex = images.length - Math.floor(visibleWidth / imageWidth); // Ensure you don't overshoot
-    if (index < 0) {
-        currentIndex = 0;
-    } else if (index > maxIndex) {
-        currentIndex = maxIndex;
-    } else {
-        currentIndex = index;
+    function getImagesPerView() {
+        if (window.innerWidth <= 576) return 1;
+        if (window.innerWidth <= 992) return 2;
+        return 3;
     }
-    carousel.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
-}
 
-// Next button functionality
-nextButton.addEventListener('click', () => {
-    moveCarousel(currentIndex + 1);
-});
+    function updateCarousel() {
+        const containerWidth = carousel.parentElement.clientWidth;
+        const imageWidth = (containerWidth / imagesPerView) - 20; // Subtract gap
+        images.forEach(img => {
+            img.style.flex = `0 0 ${imageWidth}px`;
+            img.style.maxWidth = `${imageWidth}px`;
+        });
+        carousel.style.transform = `translateX(-${currentIndex * (imageWidth + 20)}px)`;
+    }
 
-// Previous button functionality
-prevButton.addEventListener('click', () => {
-    moveCarousel(currentIndex - 1);
-});
+    function moveCarousel(direction) {
+        currentIndex += direction;
+        if (currentIndex < 0) currentIndex = images.length - imagesPerView;
+        if (currentIndex > images.length - imagesPerView) currentIndex = 0;
+        updateCarousel();
+    }
+
+    prevButton.addEventListener('click', () => moveCarousel(-1));
+    nextButton.addEventListener('click', () => moveCarousel(1));
+
+    window.addEventListener('resize', () => {
+        imagesPerView = getImagesPerView();
+        updateCarousel();
+    });
+
+    updateCarousel();
 });

@@ -9,12 +9,23 @@
 <body>
     <!-- Navigation -->
     <nav>
-        <a href="index.html#top">Home</a>
-        <a href="index.html#bio">About</a>
-        <a href="index.html#services">Services</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="index.html#contact">Contact</a>
+        <div class="nav-container">
+            <div class="logo">Krishna Tailor Khao Lak</div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#top">Home</a></li>
+                <li><a href="index.html#bio">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
+
 
     <!-- Gallery Section -->
     <section id="gallery">
@@ -274,10 +285,14 @@
 
     <!-- Footer Section -->
     <footer id="contact">
-        <h2>Contact</h2>
-        <a href="mailto:email@example.com"><img src="lightgreybox.png" alt="Email Icon"> Email</a>
-        <a href="https://maps.google.com" target="_blank"><img src="lightgreybox.png" alt="Maps Icon"> Google Maps</a>
-        <a href="https://wa.me/1234567890" target="_blank"><img src="lightgreybox.png" alt="WhatsApp Icon"> WhatsApp</a>
+        <h2>Contact Krishna Tailor Khao Lak</h2>
+        <div id="contact_links">
+            <a href="mailto:krishnatailor.khaolak@gmail.com"><img src="./images/gmail_mail_logo_social_icon-512px.png" alt="Email Icon"> <span>Email</span></a>
+            <a href="https://www.google.com/maps/dir//13,+Khukkhak,+14+Soi+Nang+Thong,+Tambon+Khuekkhak,+Takua+Pa+District,+Phang+Nga+82220,+Thailand/@8.6449626,98.1687745,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3050efcaed1b1577:0x263d993995309224!2m2!1d98.2511764!2d8.6449714?entry=ttu&g_ep=EgoyMDI0MTAwNS4yIKXMDSoASAFQAw%3D%3D" target="_blank"><img src="./images/4975305_google_google map_location_location place_map_icon.png" alt="Maps Icon"> <span>Google Maps</span></a>
+            <a href="https://wa.me/66805364976" target="_blank"><img src="./images/386747_whatsapp_call_whats app_icon.png" alt="WhatsApp Icon"> <span>WhatsApp</span></a>
+            <a href="https://www.facebook.com/people/Krishna-Tailor-Khao-Lak/100064055138855/" target="_blank"><img src="./images/5365678_fb_facebook_facebook logo_icon.png" alt="Facebook icon"> <span>Facebook</span></a>
+            <a href="https://www.tripadvisor.com/Attraction_Review-g297914-d7804230-Reviews-Krishna_Tailor_Khao_Lak-Khao_Lak_Takua_Pa_Phang_Nga_Province.html" target="_blank"><img src="./images/287521_trip_advisor_icon.png" alt="TripAdvisor Icon"> <span>Trip Advisor</span></a>
+        </div>
     </footer>
 
     <!-- Modal for Enlarged Image -->
@@ -286,7 +301,8 @@
         <img class="modal-content" id="modalImg">
     </div>
 
-    <!-- JavaScript for Modal Functionality -->
+    <!-- JavaScript Functionality -->
     <script src="scripts/modal.js"></script>
+    <script src="scripts/nav.js"></script>
 </body>
 </html>
