@@ -11,26 +11,34 @@
     <nav>
         <div class="nav-container">
             <div class="logo">Krishna Tailor Khao Lak</div>
+            <div class="nav-right">
+                <ul class="nav-menu">
+                    <li><a href="index.html#top" data-en="Home" data-de="Startseite">Home</a></li>
+                    <li><a href="index.html#bio" data-en="About" data-de="Über uns">About</a></li>
+                    <li><a href="index.html#services" data-en="Services" data-de="Dienstleistungen">Services</a></li>
+                    <li><a href="gallery.html" data-en="Gallery" data-de="Galerie">Gallery</a></li>
+                    <li><a href="#contact" data-en="Contact" data-de="Kontakt">Contact</a></li>
+                </ul>
+                <div class="language-select">
+                    <select id="language-selector">
+                        <option value="en">EN</option>
+                        <option value="de">DE</option>
+                    </select>
+                </div>
+            </div>
             <div class="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-            <ul class="nav-menu">
-                <li><a href="index.html#top">Home</a></li>
-                <li><a href="index.html#bio">About</a></li>
-                <li><a href="index.html#services">Services</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
         </div>
     </nav>
 
 
     <!-- Gallery Section -->
     <section id="gallery">
-        <h2>Our Tailoring Gallery</h2>
-        <p>Browse through our collection of custom-tailored designs and craftsmanship.</p>
+        <h2 data-en="Our Tailoring Gallery" data-de="Unsere Schneidergalerie">Our Tailoring Gallery</h2>
+        <p data-en="Browse through our collection of custom-tailored designs and craftsmanship." data-de="Durchstöbern Sie unsere Sammlung maßgeschneiderter Designs und Handwerkskunst.">Browse through our collection of custom-tailored designs and craftsmanship.</p>
         <div class="image-grid">
             <img src="./Krishna_photos/Scanned_20240716-1217-65 copy.jpg" alt="Gallery Image 2" class="gallery-img" loading="lazy">
             <img src="./Krishna_photos/Scanned_20240716-1207-10 copy.jpg" alt="Gallery Image 3" class="gallery-img" loading="lazy">
@@ -285,7 +293,7 @@
 
     <!-- Footer Section -->
     <footer id="contact">
-        <h2>Contact Krishna Tailor Khao Lak</h2>
+        <h2 data-en="Contact Krishna Tailor Khao Lak" data-de="Kontakt Krishna Tailor Khao Lak">Contact Krishna Tailor Khao Lak</h2>
         <div id="contact_links">
             <a href="mailto:krishnatailor.khaolak@gmail.com"><img src="./images/gmail_mail_logo_social_icon-512px.png" alt="Email Icon"> <span>Email</span></a>
             <a href="https://www.google.com/maps/dir//13,+Khukkhak,+14+Soi+Nang+Thong,+Tambon+Khuekkhak,+Takua+Pa+District,+Phang+Nga+82220,+Thailand/@8.6449626,98.1687745,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3050efcaed1b1577:0x263d993995309224!2m2!1d98.2511764!2d8.6449714?entry=ttu&g_ep=EgoyMDI0MTAwNS4yIKXMDSoASAFQAw%3D%3D" target="_blank"><img src="./images/4975305_google_google map_location_location place_map_icon.png" alt="Maps Icon"> <span>Google Maps</span></a>
@@ -304,5 +312,6 @@
     <!-- JavaScript Functionality -->
     <script src="scripts/modal.js"></script>
     <script src="scripts/nav.js"></script>
+    <script src="scripts/toggleGerman.js"></script>
 </body>
 </html>
