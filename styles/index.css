@@ -44,7 +44,7 @@ nav {
 }
 
 .logo {
-    width: 300px !important;
+    width: 300px;
     height: auto;
 }
 
@@ -117,7 +117,7 @@ nav {
 /* Top section */
 #top {
     width: 100%;
-    height: 60vh;
+    height: auto;
     overflow: hidden;
 }
 
@@ -125,6 +125,7 @@ nav {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
 }
 
 /* Main content */
@@ -138,42 +139,37 @@ h2 {
     font-weight: 400;
     font-style: normal;
 }
-a {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    color: inherit; /* Keeps link color consistent with text */
-    max-width: 400px;
-    max-height: 20px;
-}
-
-a:hover {
-    opacity: 0.8; /* Optional hover effect */
-}
-
-.arrow {
-    margin-left: 5px; /* Space between text and arrow */
-    width: 5px; /* Adjust size as needed */
-    height: auto;
-}
 
 /* bio */
-#bio{
-    color: rgba(78, 78, 78, 1);
-    background-color: #fff;
+/* Bio section styling */
+/* Bio section container */
+#bio {
     width: 100%;
-    padding-bottom: 100px;
+    padding: 2rem 1rem;
+    background-color: #fff;
+    color: rgba(78, 78, 78, 1);
     text-align: center;
-    letter-spacing: 0.02em;
-    font-size: 16px !important;
     font-family: 'Montserrat';
-    line-height: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+/* Paragraph styling with dynamic line breaks */
 #bio p {
-    width: 70%;
+    width: 90%; /* Keeps text within 90% of the screen width */
+    max-width: 600px; /* Optional max width for readability on larger screens */
     margin: 0 auto;
     font-weight: 400;
+    line-height: 1.6;
+    word-wrap: break-word; /* Ensures words wrap within the width */
+    word-break: break-word; /* Forces breaking within words, if necessary */
+    overflow: visible; /* Ensures no hidden text */
+    height: auto; /* Allow natural height expansion */
 }
+
+
+
 /* services */
 #services {
     display: flex;
@@ -191,7 +187,7 @@ a:hover {
 
 .content {
     width: 50% ; /* Maintains the content width at 50% */
-    padding: 100px;
+    padding: 80px;
     display: flex;
     flex-direction: column;
     align-items: start !important;
@@ -233,20 +229,30 @@ a:hover {
     object-fit: cover;
 }
 /* Links */
-a {
-    color: #005eff;
-    text-decoration: none;
-    transition: color 0.3s ease;
+.book {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none; /* Remove default underline */
+    color: inherit;
+    border-bottom: 1px solid white; /* Add single underline */
+    padding-bottom: 2px; /* Adjust as needed for spacing */
+    font-size: 1em;
+    white-space: nowrap; /* Keep text and arrow on a single line */
 }
 
 a:hover {
-    color: #00bfff;
+    color: inherit; /* Maintain the same color on hover */
+}
+
+a span {
+    margin-right: 20px; /* Adjust spacing between text and arrow */
 }
 
 /* Carousel */
 #gallery_section {
     background-color: #fff;
     padding-bottom: 100px;
+    width: 100%;
 }
 #gallery {
     width: 80%;
@@ -458,11 +464,6 @@ footer {
 }
 
 /* Responsive design */
-@media (max-width: 1200px) {
-    main {
-        padding: 0 2rem;
-    }
-}
 
 @media (max-width: 992px) {
     .carousel img {
@@ -472,18 +473,26 @@ footer {
     #gallery {
         width: 60%;
     }
+    #contact_links {
+        justify-content: center;
+        padding-bottom: 0;
+    }
+    #services img {
+        display: none;
+    }
+    #process img {
+        display: none;
+    }
+    .content {
+        width: 80%;
+        margin: 0 auto;
+    }
 }
 
 @media (max-width: 910px) {
     .nav-container {
         justify-content: space-between;
     }
-
-
-    .nav-right {
-        order: 1;
-    }
-
     .nav-menu {
         display: none;
         position: absolute;
@@ -504,12 +513,12 @@ footer {
     }
 
     .language-select {
-        margin-left: 0;
+        margin-bottom: 5px;
     }
 
     .hamburger {
         display: flex;
-        order: 3;
+        margin-left: 20px;
     }
 
     #top h1 {
@@ -546,30 +555,12 @@ footer {
         padding-bottom: 20px;
         gap: 16px; /* Space between links */
     }
-
-    #contact_links {
-        justify-content: center;
-        padding-bottom: 0;
-    }
-    #services img {
-        display: none;
-    }
-    #process img {
-        display: none;
-    }
-    .content {
-        width: 60%;
-        margin: 0 auto;
-    }
 }
 
 @media (max-width: 768px) {
     .carousel img {
         flex: 0 0 calc(100% - 20px);
         max-width: calc(100% - 20px);
-    }
-    #gallery {
-        width: 40%;
     }
 }
 
@@ -578,7 +569,10 @@ footer {
     #top h1 {
         font-size: 2em;
     }
-
+    .logo {
+        width: 180px;
+        height: auto;
+    }
     .carousel img {
         flex: 0 0 calc(100% - 20px);
         max-width: calc(100% - 20px);
