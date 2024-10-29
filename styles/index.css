@@ -69,11 +69,12 @@ nav {
     text-decoration: none;
     font-weight: bold;
     padding: 0.5em;
+    font-family: 'Montserrat';
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-.nav-menu a:hover {
-    color: #005eff;
+.nav-menu li:hover {
+    transform: scale(1.05);
 }
 
 .language-select {
@@ -527,6 +528,10 @@ footer {
         padding: 1em 0; /* Optional padding for spacing */
         z-index: 1000;
     }
+    .nav-menu li:hover {
+        transform: scale(0.95);
+    }
+    
     
     .nav-menu.active {
         display: flex;
