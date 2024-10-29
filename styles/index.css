@@ -74,7 +74,6 @@ nav {
 
 .nav-menu a:hover {
     color: #005eff;
-    text-shadow: 0px 0px 8px #005eff;
 }
 
 .language-select {
@@ -338,7 +337,8 @@ a span {
     color: #000;
     cursor: pointer;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    margin: 1em 2em;
+    margin: 1em ;
+    font-size: 36px;
 }
 
 .carousel-nav button:hover {
@@ -630,6 +630,9 @@ footer {
     .close {
         top: 20px;
         right: 20px;
+    }
+    #gallery_button {
+        width: 80%;
     }
 }
 
